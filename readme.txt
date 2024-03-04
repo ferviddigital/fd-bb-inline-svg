@@ -2,6 +2,7 @@
 Contributors: roymckenzie
 Description: Effortlessly upload and render SVGs directly within Beaver Builder Photo modules.
 Tags: beaver-builder, module, svg
+Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
