@@ -18,10 +18,6 @@ async function renderInlineSvg(imgElement) {
   const doc = new DOMParser().parseFromString(svgContent, 'image/svg+xml');
   const svgElement = doc.firstChild;
 
-  // Remove SVG height/width attributes and inherit
-  svgElement.removeAttribute('height');
-  svgElement.removeAttribute('width');
-
   // Duplicate atributes from img to SVG
   const attributes = imgElement.attributes;
   for (let i = 0; i < attributes.length; i++) {
@@ -30,6 +26,10 @@ async function renderInlineSvg(imgElement) {
       svgElement.setAttribute(attr.name, attr.value);
     }
   }
+
+  // Remove SVG height/width attributes and respect BB width property
+  svgElement.removeAttribute('height');
+  svgElement.removeAttribute('width');
 
   // Replace the image element with the SVG element
   imgElement.parentElement.replaceChild(svgElement, imgElement);

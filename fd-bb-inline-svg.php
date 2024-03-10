@@ -1,6 +1,7 @@
 <?php
 /**
  * Plugin Name:     Inline SVGs for Beaver Builder
+ * Plugin URI:      https://github.com/ferviddigital/fd-bb-inline-svg
  * Description:     Effortlessly upload and render SVGs directly within Beaver Builder Photo modules.
  * Author:          Fervid Digital
  * Author URI:      https://fervid.digital
@@ -25,15 +26,13 @@ function fd_test_bb_active() {
   } else {
     add_action( 'admin_notices', function() {
       $message = 'Inline SVGs for Beaver Builder requires Beaver Builder Plugin (Lite or Pro) to be activated. Please install and activate Beaver Builder Plugin (Lite or Pro) to use this plugin.';
-      echo '<div class="notice notice-error"><p>' . $message . '</p></style></div>';
+      echo '<div class="notice notice-error"><p>' . esc_html($message) . '</p></style></div>';
     } );
     return FALSE;
   }
 }
 
-$is_bb_active = fd_test_bb_active();
-
-if ( ! $is_bb_active ) {
+if ( ! fd_test_bb_active() ) {
   // Disable plugin and display a message if Beaver Builder is not active
   deactivate_plugins( plugin_basename( __FILE__ ) );
   return;
@@ -66,7 +65,7 @@ function fd_bb_photo_module_settings_form( $form, $id ) {
   return $form;
 }
 
-add_filter( 'fl_builder_register_settings_form', 'fd_bb_photo_module_settings_form', 10, 2);
+add_filter( 'fl_builder_register_settings_form', 'fd_bb_photo_module_settings_form', 10, 2 );
 
 
 /**
@@ -83,7 +82,7 @@ function fd_bb_module_upload_regex( $regex ) {
   return $regex;
 }
 
-add_filter( 'fl_module_upload_regex', 'fd_bb_module_upload_regex');
+add_filter( 'fl_module_upload_regex', 'fd_bb_module_upload_regex' );
 
 
 /**
@@ -98,7 +97,7 @@ function fd_wp_upload_mimes( $mime_types ) {
   return $mime_types;
 }
 
-add_filter( 'upload_mimes', 'fd_wp_upload_mimes');
+add_filter( 'upload_mimes', 'fd_wp_upload_mimes' );
 
 
 /**
@@ -121,7 +120,7 @@ function fd_bb_module_attributes( $attrs, $module ) {
   return $attrs;
 }
 
-add_filter('fl_builder_module_attributes', 'fd_bb_module_attributes', 10, 2);
+add_filter( 'fl_builder_module_attributes', 'fd_bb_module_attributes', 10, 2 );
 
 
 /**
@@ -135,7 +134,8 @@ function fd_wp_enqueue_scripts() {
     'fd-bb-inline-svg',
     plugins_url( 'public/js/fd-bb-inline-svg.js', __FILE__ ),
     ['jquery'],
-    filemtime( plugin_dir_path( __FILE__ ) . 'public/js/fd-bb-inline-svg.js')
+    filemtime( plugin_dir_path( __FILE__ ) . 'public/js/fd-bb-inline-svg.js'),
+    TRUE
   );
 
   wp_enqueue_script('fd-bb-inline-svg');
