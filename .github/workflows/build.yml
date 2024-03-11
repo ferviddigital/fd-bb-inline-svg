@@ -17,7 +17,7 @@ jobs:
     - name: Minify JS Asset
       run: |
         npm install -g uglify-js
-        uglifyjs /public/js/fd-bb-inline-svg.js -o /public/js/fd-bb-inline-svg.min.js
+        uglifyjs public/js/fd-bb-inline-svg.js -o public/js/fd-bb-inline-svg.min.js
         
     - name: Update Reference in Plugin File
       run: |
