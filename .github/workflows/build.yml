@@ -30,7 +30,7 @@ jobs:
       run: zip -r fd-bb-inline-svg.zip .
       
     - name: Upload Release Asset
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         files: fd-bb-inline-svg.zip
         tag_name: ${{ github.event.release.tag_name }}
