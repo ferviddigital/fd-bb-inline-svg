@@ -34,8 +34,5 @@ jobs:
       with:
         files: fd-bb-inline-svg.zip
         tag_name: ${{ github.event.release.tag_name }}
-        release_name: Release ${{ github.event.release.tag_name }}
-        body: |
-          This is a release for version ${{ github.event.release.tag_name }} of Inline SVGs for Beaver Builder.
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
