@@ -15,7 +15,7 @@ jobs:
         fetch-depth: 1
 
     - name: Remove .git/, .github/, .gitignore
-      run: rm -rf .git .github .gitignore README.md
+      run: rm -rf .git .github .gitignore README.md CHANGELOG.md
 
     - name: Minify JS Asset
       run: |
