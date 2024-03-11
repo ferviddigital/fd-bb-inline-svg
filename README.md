@@ -50,10 +50,7 @@ A: For further information or support, please refer to the plugin documentation 
 ![Beaver Builder Photo module General settings tab](assets/screenshot-1.png)  
 *Beaver Builder Photo module General settings tab*
 
-## Changelog
-
-### 0.1.0
-- Initial offering.
+## [Changelog](CHANGELOG.md)
 
 ## License
 
